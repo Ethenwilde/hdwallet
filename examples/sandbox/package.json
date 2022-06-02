@@ -26,7 +26,7 @@
     "jquery": "^3.4.1",
     "json": "^9.0.6",
     "parcel": "^2.3.2",
-    "web3": "^1.5.1"
+    "web3": "^1.5.1" 
   },
   "devDependencies": {
     "https-browserify": "^1.0.0",
@@ -36,3 +36,40 @@
     "stream-http": "^3.2.0"
   }
 }
+module.exports = {
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 11,
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint'],
+  rules: {
+    'object-curly-spacing': ['off'],
+    curly: ['error'],
+    'brace-style': 'error',
+    'no-unused-vars': ['off'],
+    'valid-jsdoc': ['off'],
+    'require-jsdoc': ['off'],
+    indent: ['warn', 2],
+    '@typescript-eslint/no-unused-vars': ['warn', {args: 'none'}],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': [
+      'warn',
+      {allowArgumentsExplicitlyTypedAsAny: true},
+    ],
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'no-restricted-imports': ['error', {paths: ['..', '.', './', '../']}],
+  },
+};
